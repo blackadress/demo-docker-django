@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
 
-<h2>Login</h2>
+  label {
+    font-size: 1.2em
+  }
+
+</style>
+<h2 class="titulo">Login</h2>
 <form method="POST" id='login'>
   {% csrf_token %}
-  <label for="id_username">Nombre de usuario:</label>
-  <input type="text" name="username" maxlength="40" required="" id="id_username">
-  <label for="id_password">Contraseña:</label>
-  <input type="password" name="password" maxlength="40" required="" id="id_password">
+  <div class="form-group">
+    <label for="id_username" class="">Nombre de usuario:</label>
+    <input type="text" name="username" maxlength="40" required="" id="id_username" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="id_password" class="">Contraseña:</label>
+    <input type="password" name="password" maxlength="40" required="" id="id_password" class="form-control">
+  </div>
   <button onclick=login()>Login</button>
 </form>
+
+<br>
+<a href="{% url 'saludo:registrar' %}" class="btn btn-primary">Registrar Usuario</a>
 
 <script>
   const login = () => {
