@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Login</h2>
+<form method="POST" id='login'>
+  {% csrf_token %}
+  <label for="id_username">Nombre de usuario:</label>
+  <input type="text" name="username" maxlength="40" required="" id="id_username">
+  <label for="id_password">Contraseña:</label>
+  <input type="password" name="password" maxlength="40" required="" id="id_password">
+  <button onclick=login()>Login</button>
+</form>
+
+<script>
+  const login = () => {
+    const loginForm = new FormData(document.getElementById('login'))
+    const options = {
+      method: 'POST',
+      body: loginForm
+    }
+
+    fetch('/login/', options)
+      .then(res => res.json())
+      .then(console.log)
+  }
+
+</script>
+
+{% endblock %}
