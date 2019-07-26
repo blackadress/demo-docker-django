@@ -5,4 +5,5 @@ Debido a que no puedo correr el comando ```python manage.py migrate``` al hacer 
 que hace esto por mí además de inicializar el contenedor.
 
 Para lanzar el contenedor usar el siguiente comando en consola:
+
 ```bash setup.sh ```
