@@ -9,6 +9,9 @@ services:
       - database_network
   django_app:
     build: .
+    environment:
+      - DJANGO_SETTINGS_MODULE='spaceag.settings'
+    command: pytest
     volumes:
       - .:/code
       - static:/code/static
